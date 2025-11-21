@@ -100,11 +100,11 @@ fun ReviewCalendarScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Delete,
-                            contentDescription = "删除记录",
+                            contentDescription = "删除",
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("删除记录")
+                        Text("删除")
                     }
                     
                     Spacer(modifier = Modifier.width(12.dp))
@@ -119,11 +119,11 @@ fun ReviewCalendarScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Home,
-                            contentDescription = "回到今天",
+                            contentDescription = "今天",
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("回到今天")
+                        Text("今天")
                     }
                     
                     Spacer(modifier = Modifier.width(12.dp))
@@ -135,11 +135,11 @@ fun ReviewCalendarScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Edit,
-                            contentDescription = "编辑复盘",
+                            contentDescription = "编辑",
                             modifier = Modifier.size(20.dp)
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("编辑复盘")
+                        Text("编辑")
                     }
                 }
             }

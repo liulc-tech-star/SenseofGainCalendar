@@ -58,6 +58,7 @@ fun ReviewCalendarScreen(
         focusManager.clearFocus()
     }
     
+    var showDeleteDialog by remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -94,7 +95,7 @@ fun ReviewCalendarScreen(
                 ) {
                     // 删除按钮
                     OutlinedButton(
-                        onClick = { viewModel.deleteCurrentRecord() },
+                        onClick = { showDeleteDialog = true },
                         enabled = currentRecord != null,
                         modifier = Modifier.weight(1f)
                     ) {
@@ -295,6 +296,27 @@ fun ReviewCalendarScreen(
         }
     }
     
+    // 删除确认对话框
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("确认删除") },
+            text = { Text("确定要删除当前记录吗？此操作不可撤销。") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    viewModel.deleteCurrentRecord()
+                }) {
+                    Text("确认")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text("取消")
+                }
+            }
+        )
+    }
     // 编辑对话框
     if (showEditDialog) {
         EditReviewDialog(
